@@ -1,60 +1,56 @@
 
 /*
-Use Case 6 :"Queue + Stack Based Palindrome Check"
+Use Case 7 :"Deque-Based Optimized Palindrome Checker"
 Author : Aarushi Jhawar
 Date : 26/02/26
 Reg no : RA2411026010258
-  Queue<Character> queue = new LinkedList<>();
-        Stack<Character> stack = new Stack<>();
+Deque<Character> deque = new ArrayDeque<>();
+                for (int i = 0; i < word.length(); i++) {
+                    deque.addLast(word.charAt(i));
+                }
 
-        for (int i = 0; i < word.length(); i++) {
-            char ch = word.charAt(i);
-            queue.add(ch);
-            stack.push(ch);
-        }
+                boolean isPalindrome = true;
+                while (deque.size() > 1) {
+                    char front = deque.removeFirst();
+                    char rear = deque.removeLast();
 
-        boolean isPalindrome = true;
-
-        while (!queue.isEmpty()) {
-            if (queue.remove() != stack.pop()) {
-                isPalindrome = false;
-                break;
-            }
-        }
+                    if (front != rear) {
+                        isPalindrome = false;
+                        break;
+                    }
+                }
  */
 
 import java.util.Queue;
 import java.util.LinkedList;
 import java.util.Stack;
+import java.util.Deque;
+import java.util.ArrayDeque;
 
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
 
-        String word = "civic";
+         String word = "refer";
+                Deque<Character> deque = new ArrayDeque<>();
+                for (int i = 0; i < word.length(); i++) {
+                    deque.addLast(word.charAt(i));
+                }
 
-        Queue<Character> queue = new LinkedList<>();
-        Stack<Character> stack = new Stack<>();
+                boolean isPalindrome = true;
+                while (deque.size() > 1) {
+                    char front = deque.removeFirst();
+                    char rear = deque.removeLast();
 
-        for (int i = 0; i < word.length(); i++) {
-            char ch = word.charAt(i);
-            queue.add(ch);
-            stack.push(ch);
-        }
-
-        boolean isPalindrome = true;
-
-        while (!queue.isEmpty()) {
-            if (queue.remove() != stack.pop()) {
-                isPalindrome = false;
-                break;
+                    if (front != rear) {
+                        isPalindrome = false;
+                        break;
+                    }
+                }
+                System.out.println("Input word: " + word);
+                if (isPalindrome) {
+                    System.out.println("Result: The given string is a Palindrome.");
+                } else {
+                    System.out.println("Result: The given string is NOT a Palindrome.");
+                }
             }
         }
-        System.out.println("Input string: " + word);
-
-        if (isPalindrome) {
-            System.out.println("Result: The given string is a Palindrome.");
-        } else {
-            System.out.println("Result: The given string is NOT a Palindrome.");
-        }
-    }
-}
