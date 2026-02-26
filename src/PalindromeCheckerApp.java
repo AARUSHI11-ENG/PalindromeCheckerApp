@@ -1,35 +1,42 @@
 
 /*
-Use Case 3 :
+Use Case 4 :"Character Array Based Palindrome Check"
 Author : Aarushi Jhawar
 Date : 26/02/26
 Reg no : RA2411026010258
-String reverse = "";
-for(int i = n; i > 0; i--);
-if(word.charAt(i)!=word.charAt(start)){
-         isPalindrome = false;
-           break;
-      }
- */
-
-public class PalindromeCheckerApp {
-    public static void main(String[] args) {
-        String word = "madam";
-        boolean isPalindrome = true;
-        int n = word.length() - 1;
-        int start =0;
-        for(int i=n;i>0;i--){
-            if(word.charAt(i)!=word.charAt(start)){
+       while (start < end) {
+            if (chars[start] != chars[end]) {
                 isPalindrome = false;
                 break;
             }
             start++;
+            end--;
         }
-        if(isPalindrome){
-            System.out.println(word + " is a Palindrome");
+ */
+
+public class PalindromeCheckerApp {
+    public static void main(String[] args) {
+        String word = "radar";
+        char[] chars = word.toCharArray();
+
+        int start = 0;
+        int end = chars.length - 1;
+        boolean isPalindrome = true;
+
+        while (start < end) {
+            if (chars[start] != chars[end]) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
         }
-        else{
-            System.out.println(word + " is not a Palindrome");
+        System.out.println("Input String: " + word);
+
+        if (isPalindrome) {
+            System.out.println("Result: The given string is a Palindrome.");
+        } else {
+            System.out.println("Result: The given string is NOT a Palindrome.");
         }
     }
 }
