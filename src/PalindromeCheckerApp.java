@@ -1,9 +1,15 @@
 
 /*
-Use Case 2 : Print a Hardcoded Palindrome Result
+Use Case 3 :
 Author : Aarushi Jhawar
 Date : 26/02/26
 Reg no : RA2411026010258
+String reverse = "";
+for(int i = n; i > 0; i--);
+if(word.charAt(i)!=word.charAt(start)){
+         isPalindrome = false;
+           break;
+      }
  */
 
 public class PalindromeCheckerApp {
@@ -11,11 +17,13 @@ public class PalindromeCheckerApp {
         String word = "madam";
         boolean isPalindrome = true;
         int n = word.length() - 1;
-        for(int i=0;i<word.length()/2;i++){
-            if(word.charAt(i)!=word.charAt(n - i)){
+        int start =0;
+        for(int i=n;i>0;i--){
+            if(word.charAt(i)!=word.charAt(start)){
                 isPalindrome = false;
                 break;
             }
+            start++;
         }
         if(isPalindrome){
             System.out.println(word + " is a Palindrome");
