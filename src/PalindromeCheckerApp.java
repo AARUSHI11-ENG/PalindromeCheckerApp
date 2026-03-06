@@ -1,17 +1,15 @@
 
 /*
-Use Case 10 :"Case-Insensitive & Space-Ignored Palindrome"
+Use Case 11 :" Object-Oriented Palindrome Service"
 Author : Aarushi Jhawar
 Date : 05/03/26
 Reg no : RA2411026010258
  int start = 0;
             int end = word.length() - 1;
-            boolean isPalindrome = true;
 
             while (start < end) {
                 if (word.charAt(start) != word.charAt(end)) {
-                    isPalindrome = false;
-                    break;
+                    return false;
                 }
                 start++;
                 end--;
@@ -24,28 +22,37 @@ import java.util.Stack;
 import java.util.Deque;
 import java.util.ArrayDeque;
 
-public class PalindromeCheckerApp {
-        public static void main(String[] args) {
+    class PalindromeChecker {
 
-            String input = "A man a plan a canal panama";
-
-            String word = input.replaceAll("\\s+", "").toLowerCase();
+        public boolean checkPalindrome(String word) {
 
             int start = 0;
             int end = word.length() - 1;
-            boolean isPalindrome = true;
 
             while (start < end) {
                 if (word.charAt(start) != word.charAt(end)) {
-                    isPalindrome = false;
-                    break;
+                    return false;
                 }
                 start++;
                 end--;
             }
-            System.out.println("Input: "+ word);
 
-            if (isPalindrome) {
+            return true;
+        }
+    }
+
+    public class PalindromeCheckerApp {
+
+        public static void main(String[] args) {
+
+            String word = "racecar";
+
+            PalindromeChecker checker = new PalindromeChecker();
+
+            boolean result = checker.checkPalindrome(word);
+            System.out.println("Input:" +word);
+
+            if (result) {
                 System.out.println("Result: The given string is a Palindrome.");
             } else {
                 System.out.println("Result: The given string is NOT a Palindrome.");
